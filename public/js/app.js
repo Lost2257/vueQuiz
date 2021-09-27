@@ -1922,6 +1922,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     var _this = this;
@@ -1957,6 +1978,17 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -19755,35 +19787,66 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("h2", [_vm._v("Total:" + _vm._s(_vm.allData.total))]),
-    _vm._v(" "),
-    _c("h2", [_vm._v("Good:" + _vm._s(_vm.allData.good))]),
-    _vm._v(" "),
-    _c("h2", [_vm._v("Fair:" + _vm._s(_vm.allData.fair))]),
-    _vm._v(" "),
-    _c("h2", [_vm._v("Neutral:" + _vm._s(_vm.allData.neutral))]),
-    _vm._v(" "),
-    _c("h2", [_vm._v("Bad:" + _vm._s(_vm.allData.bad))]),
-    _vm._v(" "),
-    _c("h2", [
-      _vm._v("Good:" + _vm._s(_vm.allData.goodPercent.toFixed(2)) + "%")
-    ]),
-    _vm._v(" "),
-    _c("h2", [
-      _vm._v("Fair:" + _vm._s(_vm.allData.fairPercent.toFixed(2)) + "%")
-    ]),
-    _vm._v(" "),
-    _c("h2", [
-      _vm._v("Neutral:" + _vm._s(_vm.allData.neutralPercent.toFixed(2)) + "%")
-    ]),
-    _vm._v(" "),
-    _c("h2", [
-      _vm._v("Bad: " + _vm._s(_vm.allData.badPercent.toFixed(2)) + "%")
+  return _c("div", { staticClass: "container" }, [
+    _c("table", { staticClass: "table" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("tbody", [
+        _c("tr", [
+          _c("th", { attrs: { scope: "row" } }, [_vm._v("Votes")]),
+          _vm._v(" "),
+          _c("td", [_vm._v(_vm._s(_vm.allData.total))]),
+          _vm._v(" "),
+          _c("td", [_vm._v(_vm._s(_vm.allData.good))]),
+          _vm._v(" "),
+          _c("td", [_vm._v(_vm._s(_vm.allData.fair))]),
+          _vm._v(" "),
+          _c("td", [_vm._v(_vm._s(_vm.allData.neutral))]),
+          _vm._v(" "),
+          _c("td", [_vm._v(_vm._s(_vm.allData.bad))])
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("th", { attrs: { scope: "row" } }, [_vm._v("Percentage")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("100%")]),
+          _vm._v(" "),
+          _c("td", [_vm._v(_vm._s(_vm.allData.goodPercent.toFixed(2)) + "%")]),
+          _vm._v(" "),
+          _c("td", [_vm._v(_vm._s(_vm.allData.fairPercent.toFixed(2)) + "%")]),
+          _vm._v(" "),
+          _c("td", [
+            _vm._v(_vm._s(_vm.allData.neutralPercent.toFixed(2)) + "%")
+          ]),
+          _vm._v(" "),
+          _c("td", [_vm._v(_vm._s(_vm.allData.badPercent.toFixed(2)) + "%")])
+        ])
+      ])
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Total")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Good")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Fair")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Neutral")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Bad")])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -19805,134 +19868,170 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "form",
-    {
-      attrs: { method: "post" },
-      on: {
-        submit: function($event) {
-          $event.preventDefault()
-          return _vm.submit.apply(null, arguments)
-        }
-      }
-    },
-    [
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.fields.answer,
-            expression: "fields.answer"
-          }
-        ],
-        attrs: { type: "radio", id: "good", name: "answer", value: "Good" },
-        domProps: { checked: _vm._q(_vm.fields.answer, "Good") },
+  return _c("div", { staticClass: "container" }, [
+    _c(
+      "form",
+      {
+        attrs: { method: "post" },
         on: {
-          change: function($event) {
-            return _vm.$set(_vm.fields, "answer", "Good")
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.submit.apply(null, arguments)
           }
         }
-      }),
-      _vm._v(" "),
-      _vm.errors && _vm.errors.answer
-        ? _c("div", [_vm._v(_vm._s(_vm.errors.answer[0]))])
-        : _vm._e(),
-      _vm._v(" "),
-      _c("label", { attrs: { for: "good" } }, [_vm._v("Good")]),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.fields.answer,
-            expression: "fields.answer"
-          }
-        ],
-        attrs: { type: "radio", id: "fair", name: "answer", value: "Fair" },
-        domProps: { checked: _vm._q(_vm.fields.answer, "Fair") },
-        on: {
-          change: function($event) {
-            return _vm.$set(_vm.fields, "answer", "Fair")
-          }
-        }
-      }),
-      _vm._v(" "),
-      _c("label", { attrs: { for: "fair" } }, [_vm._v("Fair")]),
-      _vm._v(" "),
-      _vm.errors && _vm.errors.answer
-        ? _c("div", [_vm._v(_vm._s(_vm.errors.answer[0]))])
-        : _vm._e(),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.fields.answer,
-            expression: "fields.answer"
-          }
-        ],
-        attrs: {
-          type: "radio",
-          id: "neutral",
-          name: "answer",
-          value: "Neutral"
-        },
-        domProps: { checked: _vm._q(_vm.fields.answer, "Neutral") },
-        on: {
-          change: function($event) {
-            return _vm.$set(_vm.fields, "answer", "Neutral")
-          }
-        }
-      }),
-      _vm._v(" "),
-      _c("label", { attrs: { for: "neutral" } }, [_vm._v("Neutral")]),
-      _vm._v(" "),
-      _vm.errors && _vm.errors.answer
-        ? _c("div", [_vm._v(_vm._s(_vm.errors.answer[0]))])
-        : _vm._e(),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.fields.answer,
-            expression: "fields.answer"
-          }
-        ],
-        attrs: { type: "radio", id: "bad", name: "answer", value: "Bad" },
-        domProps: { checked: _vm._q(_vm.fields.answer, "Bad") },
-        on: {
-          change: function($event) {
-            return _vm.$set(_vm.fields, "answer", "Bad")
-          }
-        }
-      }),
-      _vm._v(" "),
-      _c("label", { attrs: { for: "bad" } }, [_vm._v("Bad")]),
-      _vm._v(" "),
-      _vm.errors && _vm.errors.answer
-        ? _c("div", [_vm._v(_vm._s(_vm.errors.answer[0]))])
-        : _vm._e(),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("h1", [_vm._v("Picked: " + _vm._s(_vm.fields.answer))]),
-      _vm._v(" "),
-      _c("button", { attrs: { type: "submit" } }, [_vm._v("Publish")]),
-      _vm._v(" "),
-      _vm.success ? _c("div", [_vm._v("Message sent")]) : _vm._e()
-    ]
-  )
+      },
+      [
+        _c("h1", [_vm._v("How do you find our service? ")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-check" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.fields.answer,
+                expression: "fields.answer"
+              }
+            ],
+            staticClass: "form-check-input",
+            attrs: { type: "radio", id: "good", name: "answer", value: "Good" },
+            domProps: { checked: _vm._q(_vm.fields.answer, "Good") },
+            on: {
+              change: function($event) {
+                return _vm.$set(_vm.fields, "answer", "Good")
+              }
+            }
+          }),
+          _vm._v(" "),
+          _vm.errors && _vm.errors.answer
+            ? _c("div", [_vm._v(_vm._s(_vm.errors.answer[0]))])
+            : _vm._e(),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "form-check-label", attrs: { for: "good" } },
+            [_vm._v("Good")]
+          ),
+          _vm._v(" "),
+          _c("br")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-check" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.fields.answer,
+                expression: "fields.answer"
+              }
+            ],
+            staticClass: "form-check-input",
+            attrs: { type: "radio", id: "fair", name: "answer", value: "Fair" },
+            domProps: { checked: _vm._q(_vm.fields.answer, "Fair") },
+            on: {
+              change: function($event) {
+                return _vm.$set(_vm.fields, "answer", "Fair")
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "form-check-label", attrs: { for: "fair" } },
+            [_vm._v("Fair")]
+          ),
+          _vm._v(" "),
+          _vm.errors && _vm.errors.answer
+            ? _c("div", [_vm._v(_vm._s(_vm.errors.answer[0]))])
+            : _vm._e(),
+          _vm._v(" "),
+          _c("br")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-check" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.fields.answer,
+                expression: "fields.answer"
+              }
+            ],
+            staticClass: "form-check-input",
+            attrs: {
+              type: "radio",
+              id: "neutral",
+              name: "answer",
+              value: "Neutral"
+            },
+            domProps: { checked: _vm._q(_vm.fields.answer, "Neutral") },
+            on: {
+              change: function($event) {
+                return _vm.$set(_vm.fields, "answer", "Neutral")
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "form-check-label", attrs: { for: "neutral" } },
+            [_vm._v("Neutral")]
+          ),
+          _vm._v(" "),
+          _vm.errors && _vm.errors.answer
+            ? _c("div", [_vm._v(_vm._s(_vm.errors.answer[0]))])
+            : _vm._e(),
+          _vm._v(" "),
+          _c("br")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-check" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.fields.answer,
+                expression: "fields.answer"
+              }
+            ],
+            staticClass: "form-check-input",
+            attrs: { type: "radio", id: "bad", name: "answer", value: "Bad" },
+            domProps: { checked: _vm._q(_vm.fields.answer, "Bad") },
+            on: {
+              change: function($event) {
+                return _vm.$set(_vm.fields, "answer", "Bad")
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "form-check-label", attrs: { for: "bad" } },
+            [_vm._v("Bad")]
+          ),
+          _vm._v(" "),
+          _vm.errors && _vm.errors.answer
+            ? _c("div", [_vm._v(_vm._s(_vm.errors.answer[0]))])
+            : _vm._e(),
+          _vm._v(" "),
+          _c("br")
+        ]),
+        _vm._v(" "),
+        _c("h1", [_vm._v("Picked: " + _vm._s(_vm.fields.answer))]),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "btn btn-dark", attrs: { type: "submit" } },
+          [_vm._v("Submit answer")]
+        ),
+        _vm._v(" "),
+        _vm.success ? _c("div", [_vm._v("answer sent")]) : _vm._e()
+      ]
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -32469,8 +32568,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Aivaras\Desktop\vue\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Aivaras\Desktop\vue\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\GuestWBM\Desktop\vueQuiz\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\GuestWBM\Desktop\vueQuiz\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

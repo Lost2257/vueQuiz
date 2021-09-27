@@ -9,23 +9,25 @@ use Illuminate\Http\Request;
 
 class QuizController extends Controller
 {
-    public function index()
+    public function index() 
     {
         return QuizResource::collection(Quiz::all());
     }
 
-    public function submit(Request $request) {
+    public function submit(Request $request) 
+    {
         Quiz::create([
             'answer' => request('answer')
         ]);
         return response()->json(null,200);
     }
-    public function countAnswer(){
+    public function countAnswer() 
+    {
         $total = Quiz::all('answer')->count();
-        $good = Quiz::where('answer','=','good')->count();
-        $bad = Quiz::where('answer','=','bad')->count();
-        $neutral = Quiz::where('answer','=','neutral')->count();
-        $fair = Quiz::where('answer','=','fair')->count();
+        $good = Quiz::where('answer', '=', 'good')->count();
+        $bad = Quiz::where('answer', '=', 'bad')->count();
+        $neutral = Quiz::where('answer', '=', 'neutral')->count();
+        $fair = Quiz::where('answer', '=', 'fair')->count();
         $goodPercent = $good / $total * 100;
         $fairPercent = $fair / $total * 100;
         $neutralPercent = $neutral / $total *100;
@@ -41,6 +43,6 @@ class QuizController extends Controller
             'fairPercent' => $fairPercent,
             'neutralPercent' => $neutralPercent,
             'badPercent' => $badPercent,
-            ),200);
+            ), 200);
     }
 }
