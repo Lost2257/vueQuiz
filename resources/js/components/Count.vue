@@ -14,19 +14,19 @@
   <tbody>
       <tr>
           <th scope="row">Votes</th>
-          <td>{{allData.total}}</td>
-          <td>{{allData.good}}</td>
-          <td>{{allData.fair}}</td>
-          <td>{{allData.neutral}}</td>
-          <td>{{allData.bad}}</td>
+          <td>{{ allData.total }}</td>
+          <td>{{ allData.good }}</td>
+          <td>{{ allData.fair }}</td>
+          <td>{{ allData.neutral }}</td>
+          <td>{{ allData.bad }}</td>
       </tr>
       <tr>
           <th scope="row">Percentage</th>
           <td>100%</td>
-          <td>{{allData.goodPercent.toFixed(2)}}%</td>
-          <td>{{allData.fairPercent.toFixed(2)}}%</td>
-          <td>{{allData.neutralPercent.toFixed(2)}}%</td>
-          <td>{{allData.badPercent.toFixed(2)}}%</td>
+          <td>{{ allData.percentage[2].percentage }}%</td>
+          <td>{{ allData.percentage[1].percentage }}%</td>
+          <td>{{ allData.percentage[3].percentage }}%</td>
+          <td>{{ allData.percentage[0].percentage }}%</td>
       </tr>
   </tbody>
 </table>
@@ -49,10 +49,7 @@ export default {
             fair: '',
             neutral: '',
             bad: '',
-            goodPercent: '',
-            fairPercent: '',
-            neutralPercent: '',
-            badPercent: '',
+            percentage: '',
 
         }
     },

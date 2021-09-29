@@ -8,12 +8,10 @@ Vue.component('countAns' , require('./components/Count').default);
 
 const app = new Vue({
     el: '#app',
+    data: {
+        testForm: 'forma',
+        countAnswers: 'countAns',
+    }
 })
 
-const testForm = new Vue({
-    el: '#testForm'
-})
 
-const countAnswers = new Vue({
-    el: '#countAnswers'
-})

@@ -19,4 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('quizzes','Api\QuizController@index');
+Route::post('/submit','Api\QuizController@submit');
 Route::get('count', 'Api\QuizController@countAnswer');

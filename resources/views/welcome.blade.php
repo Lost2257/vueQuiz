@@ -13,16 +13,9 @@
 
     </head>
     <body>
-    <div id="testForm">
+    <div id="app">
         <forma> </forma>
     </div>
-{{--        <div id="app">--}}
-{{--            <test> </test>--}}
-{{--        </div>--}}
-    <div id="countAnswers">
-        <count-ans> </count-ans>
-    </div>
-
     <script src="{{ mix('js/app.js') }}"></script>
     </body>
 </html>

@@ -1959,10 +1959,7 @@ __webpack_require__.r(__webpack_exports__);
       fair: '',
       neutral: '',
       bad: '',
-      goodPercent: '',
-      fairPercent: '',
-      neutralPercent: '',
-      badPercent: ''
+      percentage: ''
     };
   }
 });
@@ -1978,6 +1975,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
 //
 //
 //
@@ -2033,12 +2034,14 @@ __webpack_require__.r(__webpack_exports__);
         this.loaded = false;
         this.success = false;
         this.errors = {};
-        axios.post('/submit', this.fields).then(function (response) {
+        axios.post('/api/submit', this.fields).then(function (response) {
           _this.fields = {};
           _this.loaded = true;
           _this.success = true;
         })["catch"](function (error) {
-          if (error.response.status === 422) {
+          var UnprocessableEntity = 422;
+
+          if (error.response.status === UnprocessableEntity) {
             _this.errors = error.response.data.errors || {};
           }
         });
@@ -19811,15 +19814,19 @@ var render = function() {
           _vm._v(" "),
           _c("td", [_vm._v("100%")]),
           _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(_vm.allData.goodPercent.toFixed(2)) + "%")]),
-          _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(_vm.allData.fairPercent.toFixed(2)) + "%")]),
-          _vm._v(" "),
           _c("td", [
-            _vm._v(_vm._s(_vm.allData.neutralPercent.toFixed(2)) + "%")
+            _vm._v(_vm._s(_vm.allData.percentage[2].percentage) + "%")
           ]),
           _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(_vm.allData.badPercent.toFixed(2)) + "%")])
+          _c("td", [
+            _vm._v(_vm._s(_vm.allData.percentage[1].percentage) + "%")
+          ]),
+          _vm._v(" "),
+          _c("td", [
+            _vm._v(_vm._s(_vm.allData.percentage[3].percentage) + "%")
+          ]),
+          _vm._v(" "),
+          _c("td", [_vm._v(_vm._s(_vm.allData.percentage[0].percentage) + "%")])
         ])
       ])
     ])
@@ -20028,7 +20035,11 @@ var render = function() {
           [_vm._v("Submit answer")]
         ),
         _vm._v(" "),
-        _vm.success ? _c("div", [_vm._v("answer sent")]) : _vm._e()
+        _vm.success
+          ? _c("div", [
+              _c("div", { attrs: { id: "forma" } }, [_c("count-ans")], 1)
+            ])
+          : _vm._e()
       ]
     )
   ])
@@ -32300,13 +32311,11 @@ Vue.component('test', __webpack_require__(/*! ./components/Test */ "./resources/
 Vue.component('forma', __webpack_require__(/*! ./components/Form */ "./resources/js/components/Form.vue")["default"]);
 Vue.component('countAns', __webpack_require__(/*! ./components/Count */ "./resources/js/components/Count.vue")["default"]);
 var app = new Vue({
-  el: '#app'
-});
-var testForm = new Vue({
-  el: '#testForm'
-});
-var countAnswers = new Vue({
-  el: '#countAnswers'
+  el: '#app',
+  data: {
+    testForm: 'forma',
+    countAnswers: 'countAns'
+  }
 });
 
 /***/ }),
@@ -32568,8 +32577,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\GuestWBM\Desktop\vueQuiz\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\GuestWBM\Desktop\vueQuiz\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Aivaras\Desktop\vue\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Aivaras\Desktop\vue\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
